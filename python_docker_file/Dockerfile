@@ -46,18 +46,4 @@ RUN pip install \
         sklearn \
         pandas
 
-RUN wget http://www.mirrorservice.org/sites/ftp.apache.org/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz 
-
-RUN tar xvzf hadoop-2.7.3.tar.gz
-
-RUN JAVA=$(readlink -f /usr/bin/java | sed 's:jre/bin/java::')
-ENV JAVA_HOME=${JAVA}
-ENV HADOOP_INSTALL=/root/hadoop-2.7.3
-ENV PATH=$PATH:$HADOOP_INSTALL/bin
-ENV PATH=$PATH:$HADOOP_INSTALL/sbin
-ENV HADOOP_MAPRED_HOME=$HADOOP_INSTALL
-ENV HADOOP_COMMON_HOME=$HADOOP_INSTALL
-ENV HADOOP_HDFS_HOME=$HADOOP_INSTALL
-ENV YARN_HOME=$HADOOP_INSTALL
-ENV HADOOP_HOME=$HADOOP_INSTALL
 
