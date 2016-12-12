@@ -45,5 +45,14 @@ RUN pip install \
         scipy   \
         sklearn \
         pandas
+RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz
+RUN tar -xvzf bedtools-2.26.0.tar.gz && \
+    cd bedtools-2.26.0 && \
+    make
+    
+ENV PATH="/root/bedtools-2.26.0/bin:$PATH" 
+RUN pip install pybedtools
+    
+
 
 
