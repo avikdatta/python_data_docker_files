@@ -20,7 +20,8 @@ RUN apt-get -y update && \
     libreadline6         \
     libopenblas-dev      \
     tk-dev               \
-    gfortran    
+    gfortran             \
+    mysql-client
 
 WORKDIR /root/
 RUN git clone https://github.com/yyuu/pyenv.git ~/.pyenv
@@ -44,7 +45,9 @@ RUN pip install \
         numpy   \
         scipy   \
         sklearn \
-        pandas
+        pandas  \
+        pymysql
+        
 RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz
 RUN tar -xvzf bedtools-2.26.0.tar.gz && \
     cd bedtools2 && \
@@ -53,6 +56,3 @@ RUN tar -xvzf bedtools-2.26.0.tar.gz && \
 ENV PATH="/root/bedtools2/bin:$PATH" 
 RUN pip install pybedtools
     
-
-
-
