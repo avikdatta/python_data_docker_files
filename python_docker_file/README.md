@@ -12,3 +12,9 @@ A Docker image for Python data analysis on Raspberry pi. This image is created u
  * Scipy
  * Numpy
  * Scikit-learn
+ * Matplotlib
+ * Seaborn
+ * Jupyter-notebook
+ * Pymysql
+ * BEDTools2
+ * Pybedtools
