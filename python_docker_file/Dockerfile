@@ -21,7 +21,7 @@ RUN apt-get -y update && \
     libopenblas-dev      \
     tk-dev               \
     gfortran             \
-    mysql-client
+    mysql-client         
 
 WORKDIR /root/
 RUN git clone https://github.com/yyuu/pyenv.git ~/.pyenv
@@ -39,14 +39,17 @@ RUN eval "$(pyenv init -)"
 RUN pyenv install 3.5.2
 RUN pyenv global 3.5.2
 
-RUN pip install \
-        cython  \
-        ipython \
-        numpy   \
-        scipy   \
-        sklearn \
-        pandas  \
-        pymysql
+RUN pip install    \
+        cython     \
+        ipython    \
+        numpy      \
+        scipy      \
+        sklearn    \
+        pandas     \
+        pymysql    \
+        matplotlib \
+        seaborn    \
+        jupyter
         
 RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz
 RUN tar -xvzf bedtools-2.26.0.tar.gz && \
