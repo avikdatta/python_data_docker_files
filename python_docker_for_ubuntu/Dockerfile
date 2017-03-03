@@ -1,15 +1,10 @@
 FROM ubuntu:16.04
 MAINTAINER reach4avik@yahoo.com
 
-RUN apt-get -y update &&                          \
-    apt-get install software-properties-common -y && \
-    add-apt-repository ppa:webupd8team/java
-
 RUN apt-get -y update &&   \
     apt-get install -y     \
     git                    \
     locales                \
-    oracle-java8-installer \
     wget                   \
     make                   \
     g++                    \
@@ -56,6 +51,7 @@ RUN pip install    \
         jupyter    \
         pandas_datareader  \
         bs4        \
+        matplotlib \
         matplotlib.finance \
         matplotlib.dates   \
         nltk       \
