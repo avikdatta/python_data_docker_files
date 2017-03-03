@@ -1,4 +1,4 @@
-# Python data analysis on Raspberry pi
+# Python data analysis on Ubuntu
 
 A Docker image for Python data analysis on Ubuntu 16.04. 
 Installed Tools:
