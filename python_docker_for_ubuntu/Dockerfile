@@ -50,13 +50,14 @@ RUN pip install    \
         pymysql    \
         matplotlib \
         seaborn    \
-        jupyter
+        jupyter    \
+        pandas_datareader  \
+        bs4        \
+        matplotlib.finance \
+        matplotlib.dates   \
+        nltk       \
+        gensim 
         
-RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz
-RUN tar -xvzf bedtools-2.26.0.tar.gz && \
-    cd bedtools2 && \
-    make
-    
-ENV PATH="/root/bedtools2/bin:$PATH" 
-RUN pip install pybedtools
+        
+
     
