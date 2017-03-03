@@ -1,27 +1,28 @@
 FROM ubuntu:16.04
 MAINTAINER reach4avik@yahoo.com
 
+RUN sudo apt-add-repository ppa:webupd8team/java
 
-RUN apt-get -y update && \
-    apt-get install -y   \
-    git                  \
-    locales              \
-    oracle-java8-jdk     \
-    wget                 \
-    make                 \
-    g++                  \
-    patch                \
-    build-essential      \
-    libssl-dev           \
-    zlib1g-dev           \
-    libbz2-dev           \
-    libsqlite3-dev       \
-    libssl-dev           \
-    libreadline6-dev     \
-    libreadline6         \
-    libopenblas-dev      \
-    tk-dev               \
-    gfortran             \
+RUN apt-get -y update &&   \
+    apt-get install -y     \
+    git                    \
+    locales                \
+    oracle-java8-installer \
+    wget                   \
+    make                   \
+    g++                    \
+    patch                  \
+    build-essential        \
+    libssl-dev             \
+    zlib1g-dev             \
+    libbz2-dev             \
+    libsqlite3-dev         \
+    libssl-dev             \
+    libreadline6-dev       \
+    libreadline6           \
+    libopenblas-dev        \
+    tk-dev                 \
+    gfortran               \
     mysql-client         
 
 WORKDIR /root/
