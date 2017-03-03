@@ -52,8 +52,6 @@ RUN pip install    \
         pandas_datareader  \
         bs4        \
         matplotlib \
-        matplotlib.finance \
-        matplotlib.dates   \
         nltk       \
         gensim 
         
