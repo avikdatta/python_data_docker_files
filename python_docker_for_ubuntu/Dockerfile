@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER reach4avik@yahoo.com
 
-RUN sudo apt-add-repository ppa:webupd8team/java
+RUN apt-add-repository ppa:webupd8team/java
 
 RUN apt-get -y update &&   \
     apt-get install -y     \
