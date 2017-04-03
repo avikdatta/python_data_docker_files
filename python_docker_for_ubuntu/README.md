@@ -30,20 +30,28 @@ sudo groupadd docker
 `sudo usermod -aG docker $USER`
 
 * Start docker daemon
-`sudo service docker restart`
+<pre><code>
+sudo service docker restart
 
-or 
+# or for ubuntu > 14.04  
 
-`sudo service docker.io restart for ubuntu > 14.04 )`
+sudo service docker.io restart  
+</code></pre>
 
 * Pull docker image
-`docker pull avikdatta/python_data_docker_files`
+<pre><code>
+docker pull avikdatta/python_data_docker_files
+</code></pre>
 
 * Check the available images
-`docker images`
+<pre><code>
+docker images
+</code></pre>
 
 * Run Jupyter session
-`docker run -v /home/$user:/root/data -p8888:8888 avikdatta/python_data_docker_files:latest jupyter-notebook --ip 0.0.0.0`
+<pre><code>
+docker run -v /home/$user:/root/data -p8888:8888 avikdatta/python_data_docker_files:latest jupyter-notebook --ip 0.0.0.0
+</code></pre>
 
 * Access the Jupyter secure session using the IP of the server/ virtual machine. You will need the token for accessing this instance
 
@@ -52,28 +60,38 @@ or
 Any new packages/tools can be installed in the docker image using the interactive mode
 
 * Run bash from docker
-`docker run -v /home/$user:/root/data -it avikdatta/python_data_docker_files:latest /bin/bash`
+<pre><code>
+docker run -v /home/$user:/root/data -it avikdatta/python_data_docker_files:latest /bin/bash
+</code></pre>
 
 * Install any tools using apt-get
 
 * Detach the docker container, use Control+pq
 
 * Get the container id
-`docker ps`
+<pre><code>
+docker ps
+</code></pre>
 
 * Commit changes using a new tag name
-`docker commit $container_id avikdatta/python_data_docker_files:new_feature`
+<pre><code>
+docker commit $container_id avikdatta/python_data_docker_files:new_feature
+</code></pre>
 
 * Kill container
-`docker kill $container_id`
+<pre><code>
+docker kill $container_id
+</code></pre>
 
 * Check the available images
-`docker images`
+<pre><code>
+docker images
+</code></pre>
 
 * Run new image 
-
-`docker run -v /home/$user:/root/data -p8888:8888 avikdatta/python_data_docker_files:new_feature jupyter-notebook --ip 0.0.0.0`
-
+<pre><code>
+docker run -v /home/$user:/root/data -p8888:8888 avikdatta/python_data_docker_files:new_feature jupyter-notebook --ip 0.0.0.0
+</code></pre>
 
 
 
