@@ -50,18 +50,24 @@ docker images
 
 * Run Jupyter session
 <pre><code>
-docker run -v /home/$user:/root/data -p8888:8888 avikdatta/python_data_docker_files:latest jupyter-notebook --ip 0.0.0.0
+docker run -v /home/$user:/root/data \
+           -p 8888:8888 \
+           avikdatta/python_data_docker_files:latest \
+           jupyter-notebook \
+           --ip 0.0.0.0
 </code></pre>
 
 * Access the Jupyter secure session using the IP of the server/ virtual machine. You will need the token for accessing this instance
 
-## Installinh new packages
+## Installing new packages
 
 Any new packages/tools can be installed in the docker image using the interactive mode
 
 * Run bash from docker
 <pre><code>
-docker run -v /home/$user:/root/data -it avikdatta/python_data_docker_files:latest /bin/bash
+docker run -v /home/$user:/root/data \
+           -it avikdatta/python_data_docker_files:latest \
+           /bin/bash
 </code></pre>
 
 * Install any tools using apt-get
