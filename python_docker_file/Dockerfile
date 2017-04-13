@@ -5,7 +5,6 @@ RUN apt-get -y update && \
     apt-get install -y   \
     git                  \
     locales              \
-    oracle-java8-jdk     \
     wget                 \
     make                 \
     g++                  \
