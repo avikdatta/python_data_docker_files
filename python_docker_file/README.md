@@ -16,5 +16,3 @@ A Docker image for Python data analysis on Raspberry pi. This image is created u
  * Seaborn
  * Jupyter-notebook
  * Pymysql
- * BEDTools2
- * Pybedtools
