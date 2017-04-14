@@ -11,7 +11,7 @@ ENV NR_UID 1000
 
 RUN useradd -m -s /bin/bash -N -u $NR_UID $NR_USER
 
-RUN aptget install -y oracle-java8-jdk
+RUN apt-get install -y oracle-java8-jdk
 
 RUN cd /tmp && \
     wget -q http://d3kbcqa49mib13.cloudfront.net/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
@@ -25,6 +25,9 @@ RUN cd /usr/local && \
 ENV SPARK_HOME /usr/local/spark
 ENV PYTHONPATH $SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.4-src.zip
 ENV SPARK_OPTS --driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info
+ENV PATH=$PATH:/usr/local/spark/bin
+ENV PYSPARK_DRIVER="jupyter-notebook"
+ENV PYSPARK_DRIVER_PYTHON_OPTS="--ip 0.0.0.0"
 
 EXPOSE 8888
 WORKDIR /home/$NB_USER/work
