@@ -25,9 +25,9 @@ RUN cd /usr/local && \
 ENV SPARK_HOME /usr/local/spark
 ENV PYTHONPATH $SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.4-src.zip
 ENV SPARK_OPTS --driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info
-ENV PATH=$PATH:/usr/local/spark/bin
-ENV PYSPARK_DRIVER="jupyter-notebook"
-ENV PYSPARK_DRIVER_PYTHON_OPTS="--ip 0.0.0.0"
+ENV PATH=$PATH:$SPARK_HOME/bin
+ENV PYSPARK_DRIVER_PYTHON "jupyter-notebook"
+ENV PYSPARK_DRIVER_PYTHON_OPTS "--ip 0.0.0.0 --allow-root"
 
 EXPOSE 8888
 WORKDIR /home/$NB_USER/work
