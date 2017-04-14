@@ -1,5 +1,6 @@
 FROM resin/rpi-raspbian:jessie-20170412
 MAINTAINER reach4avik@yahoo.com
+ENTRYPOINT []
 
 USER root
 WORKDIR /root/
