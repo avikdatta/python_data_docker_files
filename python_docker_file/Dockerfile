@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:jessie-20161026
+FROM resin/rpi-raspbian:jessie-20170412
 MAINTAINER reach4avik@yahoo.com
 
 USER root
