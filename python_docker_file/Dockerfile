@@ -1,6 +1,9 @@
 FROM resin/rpi-raspbian:jessie-20161026
 MAINTAINER reach4avik@yahoo.com
 
+USER root
+WORKDIR /root/
+
 RUN apt-get -y update && \
     apt-get install -y   \
     git                  \
@@ -22,7 +25,6 @@ RUN apt-get -y update && \
     gfortran             \
     mysql-client         
 
-WORKDIR /root/
 RUN git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 
 RUN mkdir -p tmp           
