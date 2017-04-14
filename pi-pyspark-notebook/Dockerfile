@@ -11,6 +11,8 @@ ENV NR_UID 1000
 
 RUN useradd -m -s /bin/bash -N -u $NR_UID $NR_USER
 
+RUN aptget install -y oracle-java8-jdk
+
 RUN cd /tmp && \
     wget -q http://d3kbcqa49mib13.cloudfront.net/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
     tar xzf spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz -C /usr/local && \
