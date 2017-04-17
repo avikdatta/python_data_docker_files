@@ -67,12 +67,6 @@ RUN pip install    \
         ipython    \
         numpy      \
         scipy      \
-        sklearn
-
-RUN pip install    \
-        pandas     \
-        matplotlib \
-        seaborn    \
         jupyter
 
 # Install Apache Spark v 2.1.0
