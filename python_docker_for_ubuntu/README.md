@@ -97,7 +97,10 @@ docker images
 
 * Run new image 
 <pre><code>
-docker run -v /home/$user:/root/data -p8888:8888 avikdatta/python_data_docker_files:new_feature jupyter-notebook --ip 0.0.0.0
+docker run -v /home/$user:/root/data \
+           -p 8888:8888               \
+           avikdatta/python_data_docker_files:new_feature \
+           jupyter-notebook --ip 0.0.0.0
 </code></pre>
 
 
