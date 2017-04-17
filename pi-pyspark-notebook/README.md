@@ -44,7 +44,7 @@ os.environ['YARN_CONF_DIR']='/path/hadoop-2.7.3/etc/hadoop/'
 * Create Spark context
 <pre><code>
 from pyspark import SparkConf, SparkContext
-conf=SparkConf().setMaster('yarn-client').setAppName("My App").set('spark.executor.memory','128m').set('spark.memory.fraction','0.1').set('spark.memory.useLegacyMode','true').set('spark.yarn.am.memory','128m')
+conf=SparkConf().setMaster('yarn').setAppName("My App").set('spark.executor.memory','128m').set('spark.memory.fraction','0.1').set('spark.memory.useLegacyMode','true').set('spark.yarn.am.memory','128m')
 sc=SparkContext(conf=conf)
 </pre></code>
 
