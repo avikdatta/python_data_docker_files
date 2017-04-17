@@ -32,9 +32,10 @@ sudo groupadd docker
 * Start docker daemon
 <pre><code>
 sudo service docker restart
+</code></pre>
 
-# or for ubuntu > 14.04  
-
+for ubuntu > 14.04  
+<pre><code>
 sudo service docker.io restart  
 </code></pre>
 
