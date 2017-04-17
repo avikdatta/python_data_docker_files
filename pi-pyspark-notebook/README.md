@@ -50,6 +50,7 @@ sc=SparkContext(conf=conf)
 
 ## Tools
 * Apache Spark 2.1.0 with Hadoop support (v2.7)
+* Python 2.7.13
 * cython
 * ipython
 * numpy
