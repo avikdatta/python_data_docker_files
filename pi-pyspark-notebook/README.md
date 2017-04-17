@@ -1,5 +1,9 @@
 # A Dockerfile for running PySpark on Jupyter
 
+## Non root user
+
+Non-root user in the image: 'pi'
+
 ## Build image
 
 <pre><code>
@@ -56,3 +60,4 @@ sc=SparkContext(conf=conf)
 * numpy
 * scipy
 * jupyter
+
