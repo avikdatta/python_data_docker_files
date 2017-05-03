@@ -15,7 +15,6 @@ Installed Tools:
     Matplotlib
     Seaborn
     Jupyter-notebook
-    Pymysql
     Beautiful soup 4
 
 ## Setup instructions
@@ -24,7 +23,9 @@ I ubuntu installed in virtual box for running the Jupyter notebook sessions. The
 
 * Install docker and docker.io 
 * Create docker group
+<pre><code>
 sudo groupadd docker
+</code></pre>
 
 * Add user to the group docker 
 `sudo usermod -aG docker $USER`
@@ -34,7 +35,7 @@ sudo groupadd docker
 sudo service docker restart
 </code></pre>
 
-for ubuntu > 14.04  
+For ubuntu > 14.04  
 <pre><code>
 sudo service docker.io restart  
 </code></pre>
@@ -51,11 +52,11 @@ docker images
 
 * Run Jupyter session
 <pre><code>
-docker run -v /home/$user:/root/data \
-           -p 8888:8888 \
+docker run -v /home/$user/data_dir:/home/vmuser/data \
+           -p 8888:8888                              \
+           --net=host                                \
            avikdatta/python_data_docker_files:latest \
-           jupyter-notebook \
-           --ip 0.0.0.0
+           jupyter-notebook  --ip 0.0.0.0
 </code></pre>
 
 * Access the Jupyter secure session using the IP of the server/ virtual machine. You will need the token for accessing this instance
@@ -66,7 +67,7 @@ Any new packages/tools can be installed in the docker image using the interactiv
 
 * Run bash from docker
 <pre><code>
-docker run -v /home/$user:/root/data \
+docker run -v /home/$user/data_dir:/home/vmuser/data \
            -it avikdatta/python_data_docker_files:latest \
            /bin/bash
 </code></pre>
@@ -97,8 +98,9 @@ docker images
 
 * Run new image 
 <pre><code>
-docker run -v /home/$user:/root/data \
-           -p 8888:8888               \
+docker run -v /home/$user/data_dir:/home/vmuser/data      \
+           -p 8888:8888                                   \
+           --net=host                                     \
            avikdatta/python_data_docker_files:new_feature \
            jupyter-notebook --ip 0.0.0.0
 </code></pre>
