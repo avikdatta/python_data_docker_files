@@ -28,8 +28,8 @@ RUN apt-get -y update &&   \
     libreadline6           \
     libopenblas-dev        \
     tk-dev                 \
-    gfortran               
-
+    gfortran               \
+    mysql-client-5.7
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
 
@@ -68,7 +68,10 @@ RUN pip install    \
         bs4        \
         matplotlib \
         nltk       \
-        gensim 
+        gensim     \
+        pymysql    \
+        xlrd       \
+        openpyxl
         
         
 
