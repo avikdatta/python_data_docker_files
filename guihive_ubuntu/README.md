@@ -7,9 +7,9 @@ An ubuntu 16.04 based docker image containing the compiled [GuiHive](https://git
 
 ## Run server
 
-USER vmuser
+USER: ` vmuser `
 
-Access guihive: http://HOST_IP_ADDRESS:8080
+Access guihive: ` http://HOST_IP_ADDRESS:8080 `
 
 ### Connect to MySQL Hive db
 
@@ -34,6 +34,6 @@ A remote directory location containing the sqlite database files can be mounted 
 * Run GuiHive server
 ` /home/vmuser/guiHive/server/server `
 
-Use path of mounted directory as the sqlite url for the guihive, e.g. "sqlite:////home/vmuser/hive_sqlite_db_dir/test_sqlite_hive.db"
+Use path of mounted directory as the sqlite url for the guihive, e.g.` "sqlite:////home/vmuser/hive_sqlite_db_dir/test_sqlite_hive.db"  `
 
 
