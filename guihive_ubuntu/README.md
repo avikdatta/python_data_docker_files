@@ -5,6 +5,10 @@
 # A docker image for running guiHive server
 An ubuntu 16.04 based docker image containing the compiled [guiHive](https://github.com/Ensembl/guiHive) server.
 
+## Pull Docker image
+
+` docker pull avikdatta/guihive_ubuntu `
+
 ## Run server
 
 USER: ` vmuser `
