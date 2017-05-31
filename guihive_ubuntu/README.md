@@ -2,8 +2,8 @@
 [![DockerStars](https://img.shields.io/docker/stars/avikdatta/guihive_ubuntu.svg)](https://registry.hub.docker.com/u/avikdatta/guihive_ubuntu/)
 [![DockerStars](https://img.shields.io/docker/automated/avikdatta/guihive_ubuntu.svg)](https://registry.hub.docker.com/u/avikdatta/guihive_ubuntu/)
 
-# A docker image for running GuiHive server
-An ubuntu 16.04 based docker image containing the compiled [GuiHive](https://github.com/Ensembl/guiHive) server.
+# A docker image for running guiHive server
+An ubuntu 16.04 based docker image containing the compiled [guiHive](https://github.com/Ensembl/guiHive) server.
 
 ## Run server
 
