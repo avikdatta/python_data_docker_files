@@ -38,11 +38,8 @@ RUN apt-get -y update &&   \
     libdbd-mysql-perl      \
     libcpan-sqlite-perl    \
     libdbd-sqlite3-perl    \
-    libgraphviz-perl    
-
-
-RUN locale-gen en_US.UTF-8
-RUN dpkg-reconfigure locales
+    libgraphviz-perl       \
+    sshfs
 
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
     groupadd $NB_GROUP && \
@@ -51,16 +48,15 @@ usermod -a -G $NB_GROUP $NB_USER
 USER $NB_USER
 WORKDIR /home/$NB_USER
 
-
-RUN git clone https://github.com/Ensembl/ensembl-hive.git
-RUN git clone https://github.com/Ensembl/guiHive.git
+RUN git clone https://github.com/Ensembl/ensembl-hive.git 
+RUN git clone https://github.com/Ensembl/guiHive.git 
 
 ENV EHIVE_ROOT_DIR=/home/$NB_USER/ensembl-hive
 ENV PERL5LIB=/home/$NB_USER/ensembl-hive/modules:$PERL5LIB
 
-RUN cd /home/$NB_USER/guiHive && 
-    git checkout server &&
-    bash guihive-deploy.sh &&
-    cd server &&
+RUN cd /home/$NB_USER/guiHive && \
+    git checkout server && \
+    bash guihive-deploy.sh && \
+    cd server && \
     go build
     
