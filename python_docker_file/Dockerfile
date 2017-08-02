@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:jessie-20170412
+FROM armv7/armhf-ubuntu
 MAINTAINER reach4avik@yahoo.com
 ENTRYPOINT []
 
