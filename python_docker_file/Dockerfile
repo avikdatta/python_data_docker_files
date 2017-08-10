@@ -3,8 +3,8 @@ MAINTAINER reach4avik@yahoo.com
 ENTRYPOINT []
 
 USER root
-ENV NB_USER=pi
-ENV NB_UID=1000
+ENV NB_USER pi
+ENV NB_UID 1000
 
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER 
 
