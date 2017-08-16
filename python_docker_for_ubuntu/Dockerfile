@@ -77,4 +77,4 @@ RUN pip install    \
         openpyxl   \
         sqlalchemy
         
- CMD["python"]
+ CMD ["python"]
