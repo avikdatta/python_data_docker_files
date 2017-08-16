@@ -29,7 +29,10 @@ RUN apt-get -y update &&   \
     libopenblas-dev        \
     tk-dev                 \
     gfortran               \
-    mysql-client-5.7
+    mysql-client-5.7       \
+    sqlite3                \
+    libsqlite3-dev
+    
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
 
@@ -71,8 +74,7 @@ RUN pip install    \
         gensim     \
         pymysql    \
         xlrd       \
-        openpyxl
+        openpyxl   \
+        sqlalchemy
         
-        
-
-    
+ CMD["python"]
