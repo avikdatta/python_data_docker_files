@@ -40,6 +40,8 @@ RUN dpkg-reconfigure locales
 
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER 
 
+RUN [ "cross-build-end" ]
+
 USER $NB_USER
 WORKDIR /home/$NB_USER
 
@@ -67,5 +69,4 @@ RUN pip install    \
         jupyter    \
         picamera
         
-RUN [ "cross-build-end" ]
 CMD ["jupyter-notebook","--ip","0.0.0.0"]
