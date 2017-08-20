@@ -6,8 +6,6 @@ USER root
 ENV NB_USER pi
 ENV NB_UID 1000
 
-RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER 
-
 WORKDIR /root/
 
 RUN apt-get  update &&   \
@@ -33,6 +31,8 @@ RUN apt-get  update &&   \
 
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
+
+RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER 
 
 USER $NB_USER
 WORKDIR /home/$NB_USER
