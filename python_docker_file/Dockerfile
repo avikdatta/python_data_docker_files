@@ -8,6 +8,8 @@ ENV NB_UID 1000
 
 WORKDIR /root/
 
+RUN [ "cross-build-start" ]
+
 RUN apt-get  update &&   \
     apt-get install -y   \
     autoconf             \
@@ -31,6 +33,7 @@ RUN apt-get  update &&   \
     tk-dev               \
     gfortran              
 
+RUN apt-get purge -y python.*
 
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
@@ -64,3 +67,5 @@ RUN pip install    \
         jupyter    \
         picamera
         
+RUN [ "cross-build-end" ]
+CMD ["jupyter-notebook","--ip","0.0.0.0"]
