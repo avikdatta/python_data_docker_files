@@ -1,4 +1,4 @@
-FROM armv7/armhf-ubuntu
+FROM resin/armv7hf-debian-qemu
 MAINTAINER reach4avik@yahoo.com
 ENTRYPOINT []
 
