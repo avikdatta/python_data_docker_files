@@ -12,7 +12,7 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER
 USER $NB_USER
 WORKDIR /home/$NB_USER
 
-RUN mkdir -p  ~/.pyenv && git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+RUN mkdir -p  /home/$NB_USER/.pyenv && git clone https://github.com/yyuu/pyenv.git /home/$NB_USER/.pyenv
 
 USER root
 RUN [ "cross-build-end" ]
