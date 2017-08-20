@@ -45,7 +45,7 @@ USER $NB_USER
 
 WORKDIR /home/$NB_USER
 
-ENV APACHE_SPARK_VERSION 2.1.0
+ENV APACHE_SPARK_VERSION 2.2.0
 ENV HADOOP_VERSION 2.7
 
 RUN cd /home/$NB_USER && \
@@ -59,8 +59,8 @@ ENV PATH="$PYENV_ROOT/shims/:$PATH"
 
 # Install Python 2.7.13 and packages
 RUN eval "$(pyenv init -)"
-RUN pyenv install 2.7.13
-RUN pyenv global 2.7.13
+RUN pyenv install 3.5.2
+RUN pyenv global 3.5.2
 
 RUN pip install    \
         cython     \
@@ -70,7 +70,7 @@ RUN pip install    \
         jupyter
 
 # Install Apache Spark v 2.1.0
-RUN wget -q http://d3kbcqa49mib13.cloudfront.net/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
+RUN  wget -q https://d3kbcqa49mib13.cloudfront.net/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
     tar -xzf spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
     rm spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
     ln -s spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark
@@ -88,3 +88,4 @@ ENV PATH $PATH:$SPARK_HOME/bin
 # Enable these two options for creating automatic Spark context while launching jupyter
 # ENV PYSPARK_DRIVER_PYTHON "jupyter-notebook"
 # ENV PYSPARK_DRIVER_PYTHON_OPTS "--ip 0.0.0.0"
+CMD ["jupyter-notebook", "--ip", "0.0.0.0"]
