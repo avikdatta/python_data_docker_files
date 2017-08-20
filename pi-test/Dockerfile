@@ -6,6 +6,8 @@ USER root
 ENV NB_USER pi
 ENV NB_UID 1000
 
+RUN apt-get install -y git 
+
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER 
 USER $NB_USER
 WORKDIR /home/$NB_USER
