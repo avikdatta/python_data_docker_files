@@ -10,6 +10,9 @@ WORKDIR /root/
 
 RUN apt-get  update &&   \
     apt-get install -y   \
+    autoconf             \
+	build-essential      \
+	ca-certificates      \
     git                  \
     locales              \
     wget                 \
