@@ -75,6 +75,8 @@ RUN pip install    \
         pymysql    \
         xlrd       \
         openpyxl   \
-        sqlalchemy
+        sqlalchemy \
+        slackclient \
+        asana
         
  CMD ["python"]
