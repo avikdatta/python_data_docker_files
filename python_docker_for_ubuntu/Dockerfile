@@ -31,6 +31,8 @@ RUN apt-get -y update &&   \
     gfortran               \
     mysql-client-5.7       \
     sqlite3                \
+    r-base                 \
+    r-base-dev             \
     libsqlite3-dev
     
 RUN locale-gen en_US.UTF-8
@@ -79,4 +81,8 @@ RUN pip install    \
         slackclient \
         asana
         
+ RUN R CMD BATCH "install.packages('devtools')" \
+     R CMD BATCH "devtools::install_github('IRkernel/IRkernel')" \
+     R CMD BATH "IRkernel::installspec()"
+     
  CMD ["python"]
