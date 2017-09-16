@@ -81,8 +81,8 @@ RUN pip install    \
         slackclient \
         asana
         
- RUN R CMD BATCH "install.packages('devtools')" \
-     R CMD BATCH "devtools::install_github('IRkernel/IRkernel')" \
-     R CMD BATH "IRkernel::installspec()"
+RUN R CMD BATCH "install.packages('devtools')"
+RUN R CMD BATCH "devtools::install_github('IRkernel/IRkernel')"
+RUN R CMD BATH "IRkernel::installspec()"
      
- CMD ["python"]
+CMD ["bash"]
