@@ -56,9 +56,10 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
     groupadd $NB_GROUP && \
 usermod -a -G $NB_GROUP $NB_USER
 
-RUN R CMD BATCH --no-site-file --no-save --no-restore "install.packages('devtools')"
-RUN R CMD BATCH --no-site-file --no-save --no-restore "devtools::install_github('IRkernel/IRkernel')"
-RUN R CMD BATCH --no-site-file --no-save --no-restore "IRkernel::installspec()"
+RUN echo "install.packages('devtools')" > /home/$NB_USER/install.R
+&& echo "devtools::install_github('IRkernel/IRkernel')" >> /home/$NB_USER/install.R
+&& echo "IRkernel::installspec()" >> /home/$NB_USER/install.R
+&& Rscript -e "source('/home/$NB_USER/install.R')"
      
 USER $NB_USER
 WORKDIR /home/$NB_USER
@@ -70,8 +71,6 @@ ENV TMPDIR=/home/$NB_USER/tmp
 ENV PYENV_ROOT="//home/$NB_USER/.pyenv"   
 ENV PATH="$PYENV_ROOT/libexec/:$PATH" 
 ENV PATH="$PYENV_ROOT/shims/:$PATH" 
-
-
 
 RUN eval "$(pyenv init -)" 
 RUN pyenv install 3.5.2
