@@ -45,21 +45,21 @@ RUN echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"), download.file.m
     && echo 'source("/etc/R/Rprofile.site")' >> /etc/littler.r \
     && ln -s /usr/share/doc/littler/examples/install.r /usr/local/bin/install.r \
     && ln -s /usr/share/doc/littler/examples/install2.r /usr/local/bin/install2.r \
-	&& ln -s /usr/share/doc/littler/examples/installGithub.r /usr/local/bin/installGithub.r \
-	&& ln -s /usr/share/doc/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r \
-	&& install.r docopt \
-	&& rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
-	&& rm -rf /var/lib/apt/lists/*
+    && ln -s /usr/share/doc/littler/examples/installGithub.r /usr/local/bin/installGithub.r \
+    && ln -s /usr/share/doc/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r \
+    && install.r docopt \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
+    && rm -rf /var/lib/apt/lists/*
     
 
-RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
-    groupadd $NB_GROUP && \
-usermod -a -G $NB_GROUP $NB_USER
+RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER \
+     && groupadd $NB_GROUP \
+     && usermod -a -G $NB_GROUP $NB_USER
 
-RUN echo "install.packages('devtools')" > /home/$NB_USER/install.R
-&& echo "devtools::install_github('IRkernel/IRkernel')" >> /home/$NB_USER/install.R
-&& echo "IRkernel::installspec()" >> /home/$NB_USER/install.R
-&& Rscript -e "source('/home/$NB_USER/install.R')"
+RUN echo "install.packages('devtools')" > /home/$NB_USER/install.R \
+    && echo "devtools::install_github('IRkernel/IRkernel')" >> /home/$NB_USER/install.R  \
+    && echo "IRkernel::installspec()" >> /home/$NB_USER/install.R  \
+    && Rscript -e "source('/home/$NB_USER/install.R')"
      
 USER $NB_USER
 WORKDIR /home/$NB_USER
