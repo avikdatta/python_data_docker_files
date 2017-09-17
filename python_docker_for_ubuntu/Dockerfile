@@ -58,8 +58,9 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER \
 
 RUN echo "install.packages('devtools')" > /home/$NB_USER/install.R \
     && echo "devtools::install_github('IRkernel/IRkernel')" >> /home/$NB_USER/install.R  \
-    && echo "IRkernel::installspec()" >> /home/$NB_USER/install.R  \
-    && Rscript -e "source('/home/$NB_USER/install.R')"
+    && echo "IRkernel::installspec()" >> /home/$NB_USER/install.R  
+    
+RUN R -e "source('/home/$NB_USER/install.R')"
      
 USER $NB_USER
 WORKDIR /home/$NB_USER
