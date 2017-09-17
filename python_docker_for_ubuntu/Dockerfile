@@ -42,6 +42,10 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
     groupadd $NB_GROUP && \
 usermod -a -G $NB_GROUP $NB_USER
 
+RUN R CMD BATCH --no-site-file --no-save --no-restore "install.packages('devtools')"
+RUN R CMD BATCH --no-site-file --no-save --no-restore "devtools::install_github('IRkernel/IRkernel')"
+RUN R CMD BATCH --no-site-file --no-save --no-restore "IRkernel::installspec()"
+     
 USER $NB_USER
 WORKDIR /home/$NB_USER
 
@@ -81,8 +85,4 @@ RUN pip install    \
         slackclient \
         asana
         
-#RUN R CMD BATCH "install.packages('devtools')"
-#RUN R CMD BATCH "devtools::install_github('IRkernel/IRkernel')"
-#RUN R CMD BATH "IRkernel::installspec()"
-     
 CMD ["bash"]
