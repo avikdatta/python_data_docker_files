@@ -70,7 +70,7 @@ ENV R_LIBS_USER /home/$NB_USER/rlib
 
 RUN mkdir -p /home/$NB_USER/rlib
 
-RUN R CMD BATCH --no-save /home/$NB_USER/install.R
+#RUN R CMD BATCH --no-save /home/$NB_USER/install.R
 
 RUN git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 
