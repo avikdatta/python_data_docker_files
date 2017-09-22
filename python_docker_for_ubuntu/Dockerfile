@@ -36,7 +36,11 @@ RUN apt-get -y update &&   \
     r-base                 \
     r-base-dev             \
     r-recommended          \
-    libsqlite3-dev
+    libsqlite3-dev         \
+    libcurl4-gnutls-dev    \
+    libcurl4-openssl-dev   \
+    libssl-dev
+    
 
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
@@ -56,11 +60,15 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER \
      && groupadd $NB_GROUP \
      && usermod -a -G $NB_GROUP $NB_USER
 
-RUN echo "install.packages('devtools')" > /home/$NB_USER/install.R \
+RUN echo "install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))" > /home/$NB_USER/install.R \
     && echo "devtools::install_github('IRkernel/IRkernel')" >> /home/$NB_USER/install.R  \
-    && echo "IRkernel::installspec()" >> /home/$NB_USER/install.R  
-    
-#RUN R -e "source('/home/$NB_USER/install.R')"
+    && echo "IRkernel::installspec(user = FALSE)" >> /home/$NB_USER/install.R  
+
+ENV R_LIBS_USER /home/$NB_USER/rlib
+
+RUN mkdir -p /home/$NB_USER/rlib
+
+RUN R CMD BATCH --no-save /home/$NB_USER/install.R
      
 USER $NB_USER
 WORKDIR /home/$NB_USER
