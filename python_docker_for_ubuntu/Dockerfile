@@ -38,8 +38,8 @@ RUN apt-get -y update &&   \
     r-recommended          \
     libsqlite3-dev         \
     libssl-dev             \
-    libcurl3               \
-    libcurl3-gnutls
+    libcurl                \
+    libcurl4-openssl-dev
     
 
 RUN locale-gen en_US.UTF-8
