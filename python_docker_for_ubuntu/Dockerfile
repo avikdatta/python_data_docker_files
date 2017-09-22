@@ -38,7 +38,6 @@ RUN apt-get -y update &&   \
     r-recommended          \
     libsqlite3-dev         \
     libssl-dev             \
-    libcurl                \
     libcurl4-openssl-dev
     
 
