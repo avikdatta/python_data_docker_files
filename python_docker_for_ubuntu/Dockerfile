@@ -38,7 +38,8 @@ RUN apt-get -y update &&   \
     r-recommended          \
     libsqlite3-dev         \
     libssl-dev             \
-    libcurl4-openssl-dev
+    libcurl4-openssl-dev   \
+    texlive-xetex
     
 
 RUN locale-gen en_US.UTF-8
