@@ -62,16 +62,6 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER \
 USER $NB_USER
 WORKDIR /home/$NB_USER
 
-RUN echo "install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))" > /home/$NB_USER/install.R \
-    && echo "devtools::install_github('IRkernel/IRkernel')" >> /home/$NB_USER/install.R  \
-    && echo "IRkernel::installspec()" >> /home/$NB_USER/install.R  
-
-ENV R_LIBS_USER /home/$NB_USER/rlib
-
-RUN mkdir -p /home/$NB_USER/rlib
-
-#RUN R CMD BATCH --no-save /home/$NB_USER/install.R
-
 RUN git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 
 RUN mkdir -p /home/$NB_USER/tmp          
@@ -106,4 +96,14 @@ RUN pip install    \
         slackclient \
         asana
         
+RUN echo "install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))" > /home/$NB_USER/install.R \
+    && echo "devtools::install_github('IRkernel/IRkernel')" >> /home/$NB_USER/install.R  \
+    && echo "IRkernel::installspec()" >> /home/$NB_USER/install.R  
+
+ENV R_LIBS_USER /home/$NB_USER/rlib
+
+RUN mkdir -p /home/$NB_USER/rlib
+
+RUN R CMD BATCH --no-save /home/$NB_USER/install.R
+
 CMD ["bash"]
