@@ -48,7 +48,11 @@ usermod -a -G $NB_GROUP $NB_USER
 USER $NB_USER
 WORKDIR /home/$NB_USER
 
-RUN git clone https://github.com/Ensembl/ensembl-hive.git 
+RUN git clone https://github.com/Ensembl/ensembl-hive.git && \
+    cd ensembl-hive && \
+    git checkout master && \
+    cd - 
+    
 RUN git clone https://github.com/Ensembl/guiHive.git 
 
 ENV EHIVE_ROOT_DIR=/home/$NB_USER/ensembl-hive
@@ -59,4 +63,8 @@ RUN cd /home/$NB_USER/guiHive && \
     bash guihive-deploy.sh && \
     cd server && \
     go build
-    
+
+EXPOSE 3306
+EXPOSE 8080
+
+CMD[ 'guiHive/server/server' ]
