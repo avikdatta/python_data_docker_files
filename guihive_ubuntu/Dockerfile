@@ -50,8 +50,9 @@ WORKDIR /home/$NB_USER
 
 RUN git clone https://github.com/Ensembl/ensembl-hive.git && \
     cd ensembl-hive && \
-    git checkout master && \
-    cd - 
+    git checkout master
+ 
+WORKDIR /home/$NB_USER
     
 RUN git clone https://github.com/Ensembl/guiHive.git 
 
@@ -67,4 +68,4 @@ RUN cd /home/$NB_USER/guiHive && \
 EXPOSE 3306
 EXPOSE 8080
 
-CMD[ 'guiHive/server/server' ]
+CMD [ 'guiHive/server/server' ]
